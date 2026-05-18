@@ -36,6 +36,8 @@ Traditional stock analysis tools rely on fixed algorithms or manual interpretati
 ### 1. Historical Stock Market Data
 Raw time-series market data including OHLCV (Open, High, Low, Close, Volume), technical indicators, and historical trends. This forms the factual foundation for the LLM's analysis.
 
+Data source from [AKShare](https://akshare.akfamily.xyz/introduction.html)
+
 ### 2. Human Invention Strategies
 User-defined trading strategies and hypotheses expressed in natural language or structured format. These allow domain experts to encode their intuition and experience into the system.
 
