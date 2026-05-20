@@ -5,3 +5,42 @@
 2026-05-20 11:44:16,101 - backend.app - INFO - 应用初始化完成
 2026-05-20 11:44:16,994 - backend.app - INFO - 应用初始化完成
 2026-05-20 11:47:13,734 - backend.app - INFO - 应用初始化完成
+2026-05-20 15:27:05,080 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:27:49,292 - backend.app - INFO - 应用初始化完成
+2026-05-20 15:28:17,187 - backend.app - INFO - 应用初始化完成
+2026-05-20 15:30:34,443 - backend.app - INFO - 应用初始化完成
+2026-05-20 15:30:38,180 - backend.app - INFO - 应用初始化完成
+2026-05-20 15:32:42,019 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:32:42,824 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:32:43,040 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:32:43,300 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:32:43,489 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:32:43,701 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:32:43,884 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:32:44,099 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:32:44,311 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:16,137 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:16,962 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:17,366 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:17,634 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:17,952 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:22,336 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:22,777 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:23,150 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:23,410 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:23,601 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:23,793 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:23,976 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:33:24,138 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:42:36,202 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:42:36,827 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:42:37,059 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:42:37,247 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:42:37,430 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:42:37,620 - backend.app - ERROR - 健康检查失败: No module named 'backend.database'
+2026-05-20 15:50:47,417 - backend.app - INFO - 应用初始化完成
+2026-05-20 15:50:47,872 - backend.app - INFO - 应用初始化完成
+2026-05-20 15:55:27,242 - backend.app - INFO - 应用初始化完成
+2026-05-20 16:12:39,682 - backend.app - INFO - 应用初始化完成
+2026-05-20 16:32:40,781 - backend.app - INFO - 应用初始化完成
+2026-05-20 16:32:41,279 - backend.app - INFO - 应用初始化完成

@@ -62,12 +62,48 @@ The LLM synthesizes all provided inputs and returns:
 ```
 AIxStock/
 ├── backend/
+│   ├── app.py                      # FastAPI app factory (create_app)
+│   ├── main.py                     # Entry point — runs uvicorn via backend/app.py
+│   ├── logging_config.py           # Logging setup
+│   ├── routers/
+│   │   ├── stock.py                # /stock/info and /stock/history endpoints
+│   │   ├── agent.py                # /agent/* endpoints (optional, loaded if available)
+│   │   └── performance.py          # /performance/* endpoints (optional)
 │   └── services/
-│       └── datas/          # Data ingestion and processing
-├── pyproject.toml          # Project dependencies (managed by uv)
-├── main.py                 # Entry point
+│       ├── data_source/
+│       │   ├── akshare_data_source.py  # AKShareDataService — upstream API wrapper
+│       │   └── tests/
+│       └── store/
+│           └── tests/
+├── local_storage/                  # Append-only local cache (Parquet + metadata.json)
+├── frontend/                       # UI layer (not yet implemented)
+├── pyproject.toml                  # Project dependencies (managed by uv)
 └── README.md
 ```
+
+## API Endpoints
+
+The backend exposes a FastAPI server with interactive docs at `http://localhost:8888/docs`.
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/` | API info and enabled features |
+| GET | `/health` | Health check |
+| GET | `/system/info` | Architecture and module status |
+| GET | `/stock/info` | Stock metadata (name, sector, listing info) |
+| GET | `/stock/history` | Daily OHLCV trading history |
+| POST | `/agent/chat` | Agent chat (if agent module available) |
+| GET | `/agent/status` | Agent module status |
+| GET | `/agent/history/{user_id}` | User interaction history |
+| GET | `/agent/memory/{user_id}` | User memory summary |
+| GET | `/agent/tools` | Available agent tools |
+
+### Stock endpoint parameters
+
+Both `/stock/info` and `/stock/history` accept:
+- `stock_code` — 6-digit A-share code (e.g. `601127` for Shanghai, `000001` for Shenzhen)
+- `date` — trading date in `YYYYMMDD` format
+- `timeout` — per-source timeout in seconds (default: 5, range: 1–30)
 
 ## Getting Started
 
@@ -89,10 +125,78 @@ uv sync
 source .venv/bin/activate
 ```
 
-### Run
+### Run backend server
 
 ```bash
-uv run main.py
+# Development (with auto-reload via DEBUG env var)
+DEBUG=true uv run python -m backend.main
+
+# Production
+uv run python -m backend.main
+```
+
+## Local Debugging
+
+### 1. Start in debug mode
+
+```bash
+DEBUG=true uv run python -m backend.main
+```
+
+`DEBUG=true` sets uvicorn's `reload=True`, so the server automatically restarts on any source file change — no manual restarts needed.
+
+### 2. Explore the API interactively
+
+Once the server is running, open the auto-generated docs in your browser:
+
+- **Swagger UI** — `http://localhost:8888/docs` (try requests directly from the browser)
+- **ReDoc** — `http://localhost:8888/redoc` (clean reference view)
+
+Example request to test the stock info endpoint:
+
+```
+GET http://localhost:8888/stock/info?stock_code=601127&date=20260512
+```
+
+### 3. Monitor logs
+
+Logs are written to two rotating files under `log/`:
+
+```bash
+# Stream all application logs
+tail -f log/application.log
+
+# Stream errors only
+tail -f log/error.log
+```
+
+Log format: `YYYY-MM-DD HH:MM:SS - <module> - <LEVEL> - <message>`
+
+### 4. Run tests
+
+```bash
+# Run all tests
+uv run pytest
+
+# Run a specific test directory with verbose output
+uv run pytest backend/services/data_source/tests/ -v
+
+# Run a single test by name
+uv run pytest -k "test_name"
+```
+
+### 5. Check module availability
+
+The agent and performance modules load conditionally at startup. Check the server logs or call `/system/info` to see which modules are active:
+
+```bash
+curl http://localhost:8888/system/info | python3 -m json.tool
+```
+
+### 6. Dependency audit
+
+```bash
+uv run pip-audit
 ```
 
 ## License
