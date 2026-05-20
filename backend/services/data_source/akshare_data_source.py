@@ -50,8 +50,8 @@ class AKShareDataService:
 
 if __name__ == "__main__":
     # 示例用法
-    date = "20260512"
-    stock_code = "601127"  # 替换为你需要查询的股票代码
+    date = "20260513"
+    stock_code = "000001"  # 替换为你需要查询的股票代码
     data_service = AKShareDataService(date, stock_code)
     
     shanghai_summary = data_service.get_shanghai_stock_summary()

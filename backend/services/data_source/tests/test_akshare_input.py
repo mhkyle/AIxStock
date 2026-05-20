@@ -2,7 +2,7 @@ import pandas as pd
 import pytest
 from unittest.mock import MagicMock, patch
 
-from backend.services.datas.akshare_input import AKShareDataService
+from backend.services.data_source.akshare_data_source import AKShareDataService
 
 
 DATE = "20260512"
